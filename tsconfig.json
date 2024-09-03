@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+      "lib": ["ES2021"],
+      "types": ["node", "express"],
+      "allowJs": true,
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "experimentalDecorators": true,
+      "esModuleInterop": true,
+      "emitDecoratorMetadata": true,
+      "noImplicitAny": true,
+      "outDir": "./dist/",
+      "baseUrl": ".",
+      "paths": {
+          "*": ["node_modules/*", "vendor/*"],
+          "src/*": ["./src/*"]
+      },
+      "skipLibCheck": true,
+      "sourceMap": true,
+      "target": "ES2021",
+      "typeRoots": ["node_modules/@types"],
+      "resolveJsonModule": true
+  },
+  "exclude": ["clients", "dist"]
+}
