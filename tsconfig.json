@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
       "lib": ["ES2021"],
-      "types": ["node", "express"],
+      "types": ["node", "express", "jest"],
       "allowJs": true,
       "module": "commonjs",
       "moduleResolution": "node",
