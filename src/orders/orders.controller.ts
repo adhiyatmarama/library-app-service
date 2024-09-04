@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Query } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query, ValidationPipe } from '@nestjs/common';
 import { OrdersService } from './orders.service';
 import { CreateOrderDto } from './dto/create-order.dto';
 import { IFindAllOrdersQueries } from './dto/resources';
@@ -8,7 +8,7 @@ export class OrdersController {
     constructor(private readonly ordersService: OrdersService) {}
 
     @Post()
-    create(@Body() createOrderDto: CreateOrderDto) {
+    create(@Body(ValidationPipe) createOrderDto: CreateOrderDto) {
         return this.ordersService.create(createOrderDto);
     }
 
