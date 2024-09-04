@@ -11,7 +11,7 @@ const DEFAULT_HEADERS = {
 };
 
 @Injectable()
-export class OpenLibraryCLientService {
+export class OpenLibraryClientService {
     private BASE_URL = 'https://openlibrary.org/';
 
     async findBooksBySubject(subject: string, q?: IFindBooksBySubjectQueries): Promise<IWork[]> {
