@@ -1,8 +1,8 @@
-import { Test, TestingModule } from "@nestjs/testing";
-import { BooksController } from "src/books/books.controller"
-import { BooksService } from "src/books/books.service";
-import { OpenLibraryClientService } from "src/libs/open-library/open-library.service";
-import { findBooksBySubjectResult, findSubjectsResult } from "../resources/books";
+import { Test, TestingModule } from '@nestjs/testing';
+import { BooksController } from 'src/books/books.controller';
+import { BooksService } from 'src/books/books.service';
+import { OpenLibraryClientService } from 'src/libs/open-library/open-library.service';
+import { findBooksBySubjectResult, findSubjectsResult } from '../resources/books';
 
 afterAll(() => {
     jest.clearAllMocks();
@@ -19,7 +19,7 @@ describe('BooksController', () => {
         }).compile();
 
         controller = module.get<BooksController>(BooksController);
-        service = module.get<BooksService>(BooksService)
+        service = module.get<BooksService>(BooksService);
     });
 
     it('should be defined', () => {
@@ -32,13 +32,13 @@ describe('BooksController', () => {
 
             const result = await controller.findBooksBySubject('photography');
             expect(result).toEqual(findBooksBySubjectResult);
-        })
-    })
+        });
+    });
 
     describe('findSubjects', () => {
         it('should return as expected', async () => {
             const result = controller.findSubjects();
             expect(result).toEqual(findSubjectsResult);
-        })
-    })
-})
+        });
+    });
+});
