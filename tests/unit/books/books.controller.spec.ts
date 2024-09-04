@@ -33,12 +33,30 @@ describe('BooksController', () => {
             const result = await controller.findBooksBySubject('photography');
             expect(result).toEqual(findBooksBySubjectResult);
         });
+
+        it('should throw error when error', async () => {
+            const error = { message: 'Internal error', error_code: 'INTERNAL_ERROR' };
+            service.findBooksBySubject = jest.fn().mockRejectedValueOnce(error);
+
+            return expect(controller.findBooksBySubject('photography')).rejects.toEqual(error);
+        });
     });
 
     describe('findSubjects', () => {
         it('should return as expected', async () => {
             const result = controller.findSubjects();
             expect(result).toEqual(findSubjectsResult);
+        });
+
+        it('should throw error when error', async () => {
+            const error = { message: 'Internal error', error_code: 'INTERNAL_ERROR' };
+            service.findSubjects = jest.fn().mockImplementationOnce(() => {
+                throw error;
+            });
+
+            return expect(() => {
+                controller.findSubjects();
+            }).toThrow(error as unknown as Error);
         });
     });
 });

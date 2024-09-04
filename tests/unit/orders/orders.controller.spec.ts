@@ -33,14 +33,32 @@ describe('OrdersController', () => {
             const result = controller.create(mockNewOrder);
             expect(result).toEqual(mockOrder);
         });
+
+        it('should throw error when error', () => {
+            const error = { message: 'Internal error', error_code: 'INTERNAL_ERROR' };
+            service.create = jest.fn().mockImplementationOnce(() => {
+                throw error;
+            });
+
+            return expect(() => {
+                controller.create(mockNewOrder);
+            }).toThrow(error as unknown as Error);
+        });
     });
 
     describe('findAll', () => {
-        it('should return new order', () => {
-            service.findAll = jest.fn().mockReturnValueOnce(findAllOrderResult);
+        it('should return new order', async () => {
+            service.findAll = jest.fn().mockResolvedValueOnce(findAllOrderResult);
 
-            const result = controller.findAll();
+            const result = await controller.findAll();
             expect(result).toEqual(findAllOrderResult);
+        });
+
+        it('should throw error when error', () => {
+            const error = { message: 'Internal error', error_code: 'INTERNAL_ERROR' };
+            service.findAll = jest.fn().mockRejectedValueOnce(error);
+
+            return expect(controller.findAll()).rejects.toEqual(error);
         });
     });
 });
