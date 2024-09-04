@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import axios from 'axios';
-import { OpenLibraryCLientService } from 'src/libs/open-library/open-library.service';
+import { OpenLibraryClientService } from 'src/libs/open-library/open-library.service';
 import {
     findAuthorByKeyHttpResponse,
     findBookByBookKeyHttpResponse,
@@ -18,14 +18,14 @@ afterAll(() => {
 });
 
 describe('OpenLibraryClientService', () => {
-    let service: OpenLibraryCLientService;
+    let service: OpenLibraryClientService;
 
     beforeEach(async () => {
         const module: TestingModule = await Test.createTestingModule({
-            providers: [OpenLibraryCLientService]
+            providers: [OpenLibraryClientService]
         }).compile();
 
-        service = module.get<OpenLibraryCLientService>(OpenLibraryCLientService);
+        service = module.get<OpenLibraryClientService>(OpenLibraryClientService);
     });
 
     it('should be defined', () => {

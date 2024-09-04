@@ -4,7 +4,7 @@ module.exports = {
     transform: {
         '^.+\\.ts$': 'ts-jest'
     },
-    testMatch: ['**/tests/**/*.spec.ts'],
+    testMatch: ['**/tests/**/*.spec.ts', '**/tests/**/*.e2e-spec.ts'],
     moduleNameMapper: {
         '^src/(.*)$': resolve(__dirname, './src/$1'),
     },
