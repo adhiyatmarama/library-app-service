@@ -35,12 +35,11 @@ describe('OrdersService', () => {
 
         it(`should throw error 'Book already borrowed on that date' if the book already borrowed`, () => {
             service.create(mockNewOrder);
+            const error = new BadRequestException('Book already borrowed on that date');
 
-            try {
+            return expect(() => {
                 service.create(mockNewOrder);
-            } catch (e) {
-                expect(e).toEqual(new BadRequestException('Book already borrowed on that date'));
-            }
+            }).toThrow(error);
         });
     });
 
