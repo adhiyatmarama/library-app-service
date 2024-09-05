@@ -34,6 +34,19 @@ $ npm run start:prod
 3. Build application using `npm run build`
 4. Run application using `node dist/src/main.js`
 
+## Test
+
+```bash
+# unit tests
+$ npm run test
+
+# e2e tests
+$ npm run test:e2e
+
+# test coverage
+$ npm run test:cov
+```
+
 ## Endpoints
 * [ GET /books/subjects/:subject ](#get-books-subjects-subject)
 * [ GET /books/subjects ](#get-books-subjects)
