@@ -1,6 +1,6 @@
 export const findBooksBySubjectResult = [
     {
-        id: '/works/OL86318W',
+        key: '/works/OL86318W',
         title: 'Ulysses',
         authors: ['James Joyce'],
         edition_number: 584
