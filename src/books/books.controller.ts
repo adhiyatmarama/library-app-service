@@ -1,5 +1,6 @@
 import { Controller, Get, Logger, Param, Query } from '@nestjs/common';
-import { BooksService, IFindBooksBySubjectQueries } from './books.service';
+import { BooksService } from './books.service';
+import { IFindBooksBySubjectQueries } from './books.resources';
 
 @Controller('books')
 export class BooksController {
